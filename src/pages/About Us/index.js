@@ -9,7 +9,7 @@ const OurTeam = () => {
   const [ourTeam, setOurTeam] = useState([]);
   useEffect(() => {
     (async () => {
-      await fetch("https://e-commerce-furni-reactjs.herokuapp.com//ourTeam")
+      await fetch("https://e-commerce-furni-reactjs.herokuapp.com/ourTeam")
         .then(res => res.json())
         .then(jsonData => {
           console.log(jsonData);
