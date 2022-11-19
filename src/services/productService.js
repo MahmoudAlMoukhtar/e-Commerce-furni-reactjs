@@ -1,4 +1,7 @@
-const baseUrl = process.env.REACT_APP_API_BASE_URL;
+// local-server const baseUrl = process.env.REACT_APP_API_BASE_URL;
+
+//hosting server
+const baseUrl = "https://e-commerce-furni-reactjs.herokuapp.com/";
 
 export async function getProducts(category) {
   const response = await fetch(baseUrl + "products?category=" + category);
