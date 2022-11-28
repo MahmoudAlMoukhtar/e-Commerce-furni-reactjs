@@ -1,6 +1,6 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
-import Header from "../../common/Header";
+import Header from "../../common/Navbar";
 import CartItem from "../../components/CartItem";
 import useFetchAll from "../../services/useFetchAll";
 import Spinner from "../../Spinner";
@@ -23,20 +23,20 @@ const CartPage = ({cart, updateQuantity}) => {
   );
   return (
     <React.Fragment>
-      <Header>
-        <h1 className="text-5xl font-semibold text-white animate__animated animate__wobble text-center my-12">
+      <div className="bg-green-800 py-12">
+        <h1 className="animate__animated animate__wobble text-2xl md:text-5xl sm:text-4xl font-semibold text-white text-center">
           Cart Page
         </h1>
-      </Header>
-      ;
-      <section id="cart" className="flex flex-col gap-y-8">
-        <h1 className=" font-bold text-[60px] text-center">
+      </div>
+
+      <section className="flex flex-col gap-y-8">
+        <h1 className="font-bold text-[60px] text-center">
           {numberItemsInCart === 0 ? (
             <p>
               Your Cart Is <span className="text-red-800">Empty</span>
             </p>
           ) : (
-            <div>
+            <div className="my-4 text-2xl md:text-5xl sm:text-4xl">
               <span className=" font-bold px-6 mx-2 border-4 bg-[#eab308] border-black rounded-full shadow shadow-2xl">
                 {numberItemsInCart}
               </span>
@@ -44,7 +44,7 @@ const CartPage = ({cart, updateQuantity}) => {
             </div>
           )}
         </h1>
-        <div className="flex flex-col mx-8">
+        <div id="cart-container" className="flex flex-col mx-8">
           {cart.length > 0 && (
             <button
               className="bg-gray-700 hover:bg-green-700 p-2 text-white font-bold text-4xl transtion duration-200 hover:opacity-[0.8] mb-2 rounded"

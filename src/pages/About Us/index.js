@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Header from "../../common/Header";
+import Header from "../../common/Navbar";
 import MainHeader from "../../components/MainHeader";
 import Services from "../../components/Services";
 import Testimonailas from "../../components/Testimonailas";
@@ -42,7 +42,7 @@ const OurTeam = () => {
         <h1 className="text-3xl font-semibold text-center">Our Team</h1>
         <div
           id="cards-team"
-          className=" flex flex-wrap justify-center items-center gap-x-8"
+          className=" flex flex-wrap justify-center items-center gap-8"
         >
           {ourTeam.map(employee => {
             return <Employee {...employee} key={employee.name} />;
@@ -56,10 +56,8 @@ const OurTeam = () => {
 const AboutPage = () => {
   return (
     <React.Fragment>
-      <Header>
-        <MainHeader title="About Us" />
-      </Header>
-      ;
+      <MainHeader title="About Us" />
+
       <div className="flex flex-col justify-center items-center">
         <OurTeam />
         <Services />

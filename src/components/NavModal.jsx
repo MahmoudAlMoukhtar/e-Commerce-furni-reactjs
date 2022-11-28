@@ -3,23 +3,41 @@ import {NavLink} from "react-router-dom";
 
 const activeStyle = {
   transition: "0.3s",
-  color: "white",
+  color: "black",
   borderBottom: "4px solid #eab308",
 };
 
 const styles = {
   linkPages:
-    "text-white hover:text-white hover:pb-1 hover:border-b-4 hover:border-yellow-500 link-nav",
+    "transtion duartion-0 text-black hover:text-black hover:pb-1 hover:border-b-4 hover:border-yellow-500 link-nav",
+  navBarModalHidden: "hidden",
+  navBarModal:
+    "fixed inset-0 bg-opacity-75 transition-opacity flex flex-col justify-center items-center z-50",
 };
 
-const Navbar = () => {
+const NavbarModal = ({setNavBarModal, navbarModal}) => {
   return (
-    <nav className="flex justify-between items-center mt-6 p-4">
-      <a href="#home">
-        <h2 className="text-white font-semibold text-4xl">Furni.</h2>
-      </a>
-      <div className="flex items-center gap-x-16">
-        <ul className="flex items-center gap-x-12">
+    <div
+      id="modal-nav"
+      className={navbarModal ? styles.navBarModal : styles.navBarModalHidden}
+    >
+      <div
+        onClick={() => setNavBarModal(false)}
+        className="fixed inset-0 bg-gray-800 bg-opacity-75 transition-opacity flex flex-col justify-center items-center"
+      ></div>
+      <div
+        id="content-modal-Collaps"
+        className="bg-white flex flex-col gap-y-4 fixed z-10 top-0 left-0 border w-60 min-h-full rounded-md shadow-2xl animate__animated animate__fadeInLeft"
+      >
+        <div id="header-cart" className="my-2 w-100">
+          <button
+            onClick={() => setNavBarModal(false)}
+            className="font-bold ml-4"
+          >
+            X
+          </button>
+        </div>
+        <ul className="flex flex-col items-center gap-12">
           <NavLink
             style={({isActive}) => (isActive ? activeStyle : undefined)}
             to="/"
@@ -60,7 +78,7 @@ const Navbar = () => {
           <NavLink
             to="/Cart"
             className={
-              "text-white hover:text-white hover:pb-1 border-b-4 border-yellow-500 link-nav bg-black p-2 rounded-full font-bold"
+              "text-white hover:text-black hover:pb-1 border-b-4 border-yellow-500 link-nav bg-black p-2 rounded-full font-bold"
             }
           >
             <svg
@@ -79,19 +97,12 @@ const Navbar = () => {
           </NavLink>
         </ul>
       </div>
-    </nav>
+    </div>
   );
 };
 
-const Header = ({children}) => {
-  return (
-    <header id="home" className="h-full w-full bg-green-800">
-      <div className="contanier px-16 flex flex-col justify-center">
-        <Navbar />
-        {children}
-      </div>
-    </header>
-  );
-};
+export default NavbarModal;
 
-export default Header;
+/* 
+
+*/

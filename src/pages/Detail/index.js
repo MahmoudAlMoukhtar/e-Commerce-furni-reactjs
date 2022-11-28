@@ -3,17 +3,17 @@ import {useParams, useNavigate} from "react-router-dom";
 import useFetch from "../../services/useFetch";
 import Spinner from "../../Spinner";
 import PageNotFound from "../../PageNotFound";
-import Header from "../../common/Header";
+import Header from "../../common/Navbar";
 
 const styles = {
   mainSectionDetailPageStyle:
-    "px-8 lg:px-60 flex justify-between items-center gap-x-80 mt-20 md:flex-row lg:gap-x-60 lg:gap-x-40 md:gap-x-20 sm:gap-x-10 sm:flex-col sm:px-0",
+    "main-section-detail-page-style flex justify-between items-center gap-x-80 px-6 mt-20 md:gap-x-40 md:px-12",
   porfolioProductStyle: "flex flex-col items-center",
   containerMainImgStyle: "transition duration-200 hover:scale-110 rounded-lg",
   mainImgStyle:
-    "w-96 h-96 rounded-lg border-2 border-orange transition duration-400 cursor-pointer animate__animated animate__jello",
+    "main-img-style w-96 h-96 rounded-lg border-2 border-orange transition duration-400 cursor-pointer animate__animated animate__jello",
   detailProductStyle:
-    "flex flex-1 flex-col gap-y-10 lg:gap-y-10 sm-text-center lg:mt-0 sm:mt-14 animate__animated animate__bounceInRight",
+    "detail-product-style flex flex-1 flex-col lg:px-12 gap-y-10 sm-text-center animate__animated animate__bounceInRight",
   addProduct:
     "w-[100%] p-2 rounded btn bg-gray-700 text-white hover:bg-green-700 hover:text-white cursor-pointer",
   addProductDisabled:
@@ -38,7 +38,6 @@ const Detail = ({addToCart, updateQuantity}) => {
   //return jsx UI product
   return (
     <React.Fragment>
-      <Header />
       <section className={styles.mainSectionDetailPageStyle}>
         <div id="porfolioProduct" className={styles.porfolioProductStyle}>
           <div className={styles.containerMainImgStyle}>
@@ -51,16 +50,26 @@ const Detail = ({addToCart, updateQuantity}) => {
         </div>
         <div id="detailProduct" className={styles.detailProductStyle}>
           <section className="flex flex-col gap-4">
-            <h3 className=" font-bold text-md tracking-widest">
+            <h3
+              id="detail-mockup"
+              className="font-bold text-[12px] sm:text-md tracking-widest"
+            >
               {product.name}
             </h3>
-            <h1 id="title-product" className="font-bold text-4xl">
+            <h1
+              id="detail-title-product"
+              className="font-bold text-xl md:text-2xl"
+            >
               {product.name}
             </h1>
-            <p id="descrip-product">{product.description}</p>
-            <small className="font-bold text-xl">
+            <p id="descrip-product" className="text-sm sm:text-lg">
+              {product.description}
+            </p>
+            <small className="font-bold text-lg">
               Price: $
-              <span className="text-[#eab308] text-2xl">{product.price}</span>
+              <span id="detail-price" className="text-[#eab308] text-2xl">
+                {product.price}
+              </span>
             </small>
 
             <select

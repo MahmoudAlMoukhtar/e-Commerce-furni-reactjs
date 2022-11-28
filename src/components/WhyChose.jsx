@@ -34,8 +34,11 @@ let feachers = [
 const Feacher = ({feacher}) => {
   const {title, icon, descripe} = feacher;
   return (
-    <div id="card-1" className="flex flex-col gap-y-4 w-80">
-      <div className="flex lg:justify-start md:justify-center">
+    <div
+      id="card-feacher"
+      className="flex flex-col justify-cneter items-center text-center gap-y-4 w-56 border-2 bg-gray-100 rounded"
+    >
+      <div className="flex justify-start">
         <img src={icon} alt="" width={40} height={40} />
       </div>
       <h1 className="text-md">{title}</h1>
@@ -47,33 +50,43 @@ const Feacher = ({feacher}) => {
 const WhyChoose = () => {
   return (
     <section id="why-chose" className="mt-40">
-      <div className="conatiner px-16 flex justify-between items-center gap-x-40">
-        <div id="" className="flex flex-col gap-y-12 flex-1">
-          <div className="flex flex-col gap-y-2">
-            <h1 className="text-3xl font-semibold">Why Choose Us</h1>
-            <p className="text-gray-400">
+      <div
+        id="why-sec-conatiner"
+        className="sm:flex-col-revres xl:flex-row px-16 flex justify-center items-center gap-8"
+      >
+        <div
+          id=""
+          className="flex flex-col items-center justify-center gap-y-12"
+        >
+          <div
+            id="why-sec-text"
+            className="flex flex-col justify-center items-center text-center gap-y-2"
+          >
+            <h1 id="why-sec-title" className="text-3xl font-semibold">
+              Why Choose Us
+            </h1>
+            <p className="text-gray-400 text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab magnam
               minus laudantium, ducimus rem officia? laudantium, ducimus rem
               officia?
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 lg:text-start md:grid-col-1 md:text-center gap-8">
+          <div
+            id="testest"
+            className="flex justify-center gap-2 flex-wrap flex-2 lg:gap-16"
+          >
             {feachers.map(feacher => {
               return <Feacher feacher={feacher} key={feacher.id} />;
             })}
           </div>
         </div>
-        <div id="div-imgs-section-why-we" className="">
-          <img
-            id="why-choose-us-img"
-            src="/images/why-choose-us-img.jpg"
-            alt=""
-            className="rounded-md"
-            width={500}
-            height={500}
-          />
-        </div>
+        <img
+          id="why-choose-us-img"
+          src="/images/why-choose-us-img.jpg"
+          alt=""
+          className="w-[500px] rounded-md"
+        />
       </div>
     </section>
   );

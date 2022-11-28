@@ -19,8 +19,11 @@ const Service = ({service}) => {
 const Services = () => {
   return (
     <section className="mt-40" id="services">
-      <div className="contanier xl:px-16 lg:px-8 sm:px-6 flex justify-between lg:items-start md:items-start">
-        <div className="grid grid-cols-2 gap-4">
+      <div
+        id="services-sec-contanier"
+        className="contanier xl:px-16 lg:px-8 sm:px-6 flex justify-between lg:items-start md:items-start gap-6"
+      >
+        <div id="services-sec-images" className="grid grid-cols-2 gap-4">
           <div id="Image-grid-1" className="row-span-3">
             <img
               src="/images/img-grid-1.jpg"
@@ -50,25 +53,29 @@ const Services = () => {
             />
           </div>
         </div>
-        <div id="text-section-3" className="flex flex-col gap-y-10 w-96">
-          <h2 className="text-3xl font-medium">
+        <div id="services-sec-text" className="flex flex-col gap-y-10 w-96">
+          <h2 id="services-sec-text_title" className="text-3xl font-medium">
             We Help You Make Modern Interior Design
           </h2>
-          <p className="text-gray-400">
+          <p id="services-sec-text_description" className="text-gray-400">
             Donec vitae odio nisl daplibus malesuda Aliquam vulputate velit.
             Nullam ac aliqute velit. Aliquam vulputate velit velit imperdiet
             dolor tempor tristique
           </p>
-          <div className="grid lg:grid-cols-2 lg:text-start md:grid-col-1 md:text-center gap-8 ">
+          <div
+            id="services-sec-text_feachers"
+            className="grid lg:grid-cols-2 lg:text-start md:grid-col-1 md:text-center gap-8 "
+          >
             {dataServices.map(s => (
               <Service service={s} key={s} />
             ))}
           </div>
-          <div>
-            <button className="bg-black py-2 px-7 rounded-full font-semibold text-white">
-              Explore
-            </button>
-          </div>
+          <button
+            id="services-sec-btnExplore"
+            className="bg-black py-2 px-7 rounded-full font-semibold text-white"
+          >
+            Explore
+          </button>
         </div>
       </div>
     </section>

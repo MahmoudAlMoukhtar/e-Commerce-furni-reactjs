@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Header from "../../common/Header";
+import Header from "../../common/Navbar";
 import {saveShippingAddress} from "../../services/shippingService";
 // Declaring outside component to avoid recreation on each render
 const emptyAddress = {
@@ -99,14 +99,13 @@ function CheckoutPage({emptyCart}) {
 
   return (
     <React.Fragment>
-      <Header>
-        <h1 className="text-5xl font-semibold text-white animate__animated animate__wobble text-center my-12">
+      <div className="bg-green-800 py-12">
+        <h1 className="animate__animated animate__wobble text-2xl md:text-5xl sm:text-4xl font-semibold text-white text-center">
           Chackout Page
-        </h1>{" "}
-      </Header>
-
-      <section className="flex flex-col justify-center items-center my-40">
-        <div className="flex flex-col w-[800px]">
+        </h1>
+      </div>
+      <section className="flex flex-col justify-center items-center my-40 px-8">
+        <div className="flex flex-col w-[100%]">
           <h1 className="text-center font-bold">Shipping Info</h1>
           {!isValid && status === STATUS.SUBMITTED && (
             <div role="alert">

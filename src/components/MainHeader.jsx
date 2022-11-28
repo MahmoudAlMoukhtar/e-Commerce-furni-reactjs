@@ -9,23 +9,33 @@ const MainHeader = ({title}) => {
   const navigait = useNavigate();
 
   return (
-    <div id="mainHeader" className="flex justify-between items-center">
-      <div id="main-text" className="flex flex-col gap-y-12 flex-1">
-        <h1 className="text-5xl font-semibold text-white animate__animated animate__wobble">
+    <div
+      id="mainHeader"
+      className="bg-green-800 flex justify-between items-center p-8 w-[100%]"
+    >
+      <div id="main-text" className="flex flex-col gap-y-12 flex-2">
+        <h1
+          id={"main_header-title"}
+          className="text-5xl font-semibold text-white animate__animated animate__wobble"
+        >
           {title}
         </h1>
-        <p className="text-gray-400">
+        <p id="main_header-descraption" className="text-gray-400">
           Donec vitae quis nisi dapibus malesuada. Nuilam ac ailqut velit.
           Aliquam vulputate velit imperdiet dolor tempor tristique.
         </p>
-        <div id="btns-main" className="flex gap-x-2">
+        <div id="main-btns" className="flex gap-x-2">
           <button
+            id="main_header-btnShopNow"
             className="bg-yellow-500 py-2 px-7 rounded-full font-semibold"
             onClick={() => navigait("/allProducts")}
           >
             Shop Now
           </button>
-          <button className="bg-transpert py-2 px-7 rounded-full font-semibold border-2 border-gray-400 text-white">
+          <button
+            id="main_header-btnExplore"
+            className="bg-transpert py-2 px-7 rounded-full font-semibold border-2 border-gray-400 text-white"
+          >
             Explore
           </button>
         </div>
@@ -33,8 +43,6 @@ const MainHeader = ({title}) => {
       <div
         id="main-imgs"
         className="flex relative animate__animated animate__bounceInUp"
-        onMouseOver={imageTransformEffect}
-        onMouseOut={imageTransformEffectOut}
       >
         <img
           id="couchImg"
@@ -56,7 +64,7 @@ const MainHeader = ({title}) => {
 };
 export default MainHeader;
 
-const imageTransformEffect = e => {
+/* const imageTransformEffect = e => {
   const dotsYellow = document.getElementById("dotsYellow");
   const couchImg = document.getElementById("couchImg");
   dotsYellow.style.transform = "translateX(50px)";
@@ -68,3 +76,4 @@ const imageTransformEffectOut = e => {
   dotsYellow.style.transform = "translateX(0px)";
   couchImg.style.transform = "translateX(0px)";
 };
+ */

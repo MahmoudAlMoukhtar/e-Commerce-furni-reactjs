@@ -41,8 +41,11 @@ function BestSellProducts({numStartSlice = 0, numEndSlice = 3}) {
         <PageNotFound />
       ) : (
         <section id="show3products" className="mt-20">
-          <div className="contanier xl:px-16 lg:px-8 sm:px-6 flex justify-between lg:items-center md:items-start">
-            <div id="text-section-2" className="flex flex-col gap-y-6 min-w-96">
+          <div
+            id="container-best-products"
+            className="contanier flex justify-center items-center gap-6 px-16"
+          >
+            <div id="text-section" className="flex flex-col gap-y-6 min-w-96">
               <h3 className="text-3xl font-medium">
                 Crafted with excellent material.
               </h3>
@@ -57,8 +60,8 @@ function BestSellProducts({numStartSlice = 0, numEndSlice = 3}) {
               </div>
             </div>
             <div
-              id="prodact-imgs-HomePage"
-              className="grid grid-rows-2 grid-flow-col gap-2 lg:gap-x-2 lg:grid-rows-1 md:gap-x-2"
+              id="best-products-sec"
+              className="flex gap-4 justify-between w-[100%]"
             >
               {productsSlice.map(p => (
                 <Product product={p} key={p.id} />

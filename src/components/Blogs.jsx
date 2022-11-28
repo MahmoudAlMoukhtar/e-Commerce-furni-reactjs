@@ -1,7 +1,7 @@
 import React from "react";
 import useFetchBlogs from "../services/useFetchBlogs";
 import Spinner from "../Spinner";
-import {useNavigate, useParams, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 import Blog from "./Blog";
 
 const Blogs = ({page}) => {
@@ -18,7 +18,7 @@ const Blogs = ({page}) => {
   return (
     <section id="blogs">
       <div
-        id="bolgs-container"
+        id="bolgs-sec-container"
         className="contanier xl:px-16 lg:px-8 sm:px-6 flex flex-col justify-between gap-y-20"
       >
         {page !== "blogs" && (
@@ -26,8 +26,10 @@ const Blogs = ({page}) => {
             <div className="w-full">
               <h1 className="text-center text-6xl font-bold">BLOGS</h1>
             </div>
-            <div className="flex justify-between">
-              <h1 className="text-3xl font-semibold">Recent Blog</h1>
+            <div id="bolgs-sec-nav" className="flex justify-between">
+              <h1 className="md:text-3xl sm:text-sm font-semibold">
+                Recent Blog
+              </h1>
               <Link
                 to="/blogs"
                 className="font-semibold text-sm underline decoration-2"
@@ -38,7 +40,7 @@ const Blogs = ({page}) => {
           </React.Fragment>
         )}
         <div
-          id="last-3-blogs"
+          id="bolgs-sec-last3Blogs"
           className="flex flex-wrap justify-center items-center gap-8 h-max"
         >
           {blogsAfterSlice.map(b => (

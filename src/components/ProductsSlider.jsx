@@ -14,17 +14,19 @@ import "swiper/modules/pagination/pagination.min.css";
 
 const styles = {
   cardProduct:
-    "product flex flex-col justify-between items-center pt-2  cursor-pointer rounded-xl transtion duration-200 hover:scale-110 w-80 h-full",
+    "product flex flex-col justify-between items-center pt-2 rounded-xl transtion duration-200 w-80 h-full",
   containerCards: "flex justify-start gap-8 gap-x-6 my-4 flex-wrap mt-10",
   sectionFilters: "flex justify-between  p-4 bg-white font-bold",
 };
 
 function SlideProduct({p}) {
   return (
-    <div>
-      <div key={p.id} className={styles.cardProduct} id="prodauct">
-        <img src={`/images/${p.image}`} alt={p.name} className="w-[300px]" />
-      </div>
+    <div key={p.id} className={styles.cardProduct} id="prodauct">
+      <img
+        src={`/images/${p.image}`}
+        alt={p.name}
+        className="imgSlide w-[300px] h-[300px]"
+      />
     </div>
   );
 }
@@ -60,7 +62,10 @@ export default function ProductsSlider() {
     .reverse();
 
   return (
-    <div className="flex justify-between gap-x-8 mt-10 px-8">
+    <div
+      id="productsSlider-sec"
+      className="flex justify-between items-center gap-x-2 mt-10 px-8"
+    >
       {products.length === 0 ? (
         <PageNotFound />
       ) : (
@@ -88,7 +93,7 @@ export default function ProductsSlider() {
               {productsSort.map(p => {
                 return (
                   <SwiperSlide
-                    className="flex justify-center align-center my-20"
+                    className="flex justify-center items-center my-20"
                     key={p.id}
                   >
                     <SlideProduct p={p} />

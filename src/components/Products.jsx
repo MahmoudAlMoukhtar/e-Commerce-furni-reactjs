@@ -47,10 +47,11 @@ export default function Products() {
       <div>
         <section id="filters" className={styles.sectionFilters}>
           <label
+            id="filter-by-size"
             htmlFor="size"
-            className="border-[1px] border-gray-400 rounded"
+            className="filter-by flex justify-between items-center border-[1px] border-gray-400 rounded"
           >
-            Filter by size:/
+            <p>Filter by size:</p>
             <select
               id="size"
               value={size}
@@ -65,9 +66,9 @@ export default function Products() {
           </label>
           <label
             htmlFor="category"
-            className="border-[1px] border-gray-400 rounded"
+            className="filter-by flex justify-between items-center border-[1px] border-gray-400 rounded"
           >
-            Filter by category:
+            <p>Filter by category:</p>
             <select
               id="category"
               value={category}

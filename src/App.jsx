@@ -11,6 +11,8 @@ import CheckoutPage from "./pages/Checkout";
 import Footer from "../src/common/Footer";
 import ContactPage from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
+import NavbarModal from "./components/NavModal";
+import Navbar from "./common/Navbar";
 
 export default function App() {
   const [cart, setCart] = useState(() => {
@@ -50,26 +52,57 @@ export default function App() {
   const emptyCart = () => {
     setCart([]);
   };
-
+  const [navBarModal, setNavBarModal] = useState(false);
   return (
     <React.Fragment>
       <ScrollToTop />
       <div className="flex flex-col ">
         <main className="p-0 m-0">
+          <Navbar setNavBarModal={setNavBarModal} navbarModal={navBarModal} />
+          <NavbarModal
+            setNavBarModal={setNavBarModal}
+            navbarModal={navBarModal}
+          />
+
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  setNavBarModal={setNavBarModal}
+                  navbarModal={navBarModal}
+                />
+              }
+            />
             <Route
               path="/:category"
-              element={<ShopPage addToCart={addToCart} />}
+              element={
+                <ShopPage
+                  addToCart={addToCart}
+                  setNavBarModal={setNavBarModal}
+                />
+              }
             />
             <Route
               path="/:category/:id"
               element={
-                <Detail addToCart={addToCart} updateQuantity={updateQuantity} />
+                <Detail
+                  addToCart={addToCart}
+                  updateQuantity={updateQuantity}
+                  setNavBarModal={setNavBarModal}
+                />
               }
             />
-            <Route path="/blogs" element={<BlogsPage page="blogs" />} />
-            <Route path="/blogs/:blogId" element={<DetailBlog />} />
+            <Route
+              path="/blogs"
+              element={
+                <BlogsPage page="blogs" setNavBarModal={setNavBarModal} />
+              }
+            />
+            <Route
+              path="/blogs/:blogId"
+              element={<DetailBlog setNavBarModal={setNavBarModal} />}
+            />
             <Route
               path="/cart"
               element={<CartPage cart={cart} updateQuantity={updateQuantity} />}
@@ -78,12 +111,21 @@ export default function App() {
               path="/checkout"
               element={<CheckoutPage cart={cart} emptyCart={emptyCart} />}
             />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
+            <Route
+              path="/about"
+              element={<AboutPage setNavBarModal={setNavBarModal} />}
+            />
+            <Route
+              path="/contact"
+              element={<ContactPage setNavBarModal={setNavBarModal} />}
+            />
           </Routes>
+          <Footer />
         </main>
-        <Footer />
       </div>
     </React.Fragment>
   );
 }
+/* 
+<Footer />
+*/

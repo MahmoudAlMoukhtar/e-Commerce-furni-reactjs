@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 
 const styles = {
   cardProduct:
-    "prodauct bg-gray-100 flex flex-col justify-between items-center gap-y-2 sm:w-60 shadow-2xl p-2 hover-background-Prod rounded-md hover:scale-110 transition duration-[0.1s]  cursor-pointer",
+    "prodauct bg-gray-100 flex flex-col justify-between items-center gap-y-2 sm:w-60 shadow-2xl p-2 hover-background-Prod rounded-md hover:scale-110 transition duration-[0.1s]",
   btnAddStyle:
     "btn-add-to-cart text-white text-3xl translate-y-8 bg-black py-1 px-3 rounded-full transition duration-100 ease-in-out cursor-pointer",
 };
@@ -15,7 +15,7 @@ const Product = ({product: p}) => {
       <img
         src={`/images/${p.image}`}
         alt={p.name}
-        className="w-[100%] object-cover"
+        className="w-[300px] h-[300px] object-cover"
       />
       <div className="flex flex-col justify-center items-center gap-4">
         <h1 id="title-product" className="font-semibold">

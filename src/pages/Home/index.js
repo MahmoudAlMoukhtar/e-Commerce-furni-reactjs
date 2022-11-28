@@ -5,15 +5,13 @@ import Testimonailas from "../../components/Testimonailas";
 import WhyChoose from "../../components/WhyChose";
 import BestSellProducts from "../../components/BestSellProducts";
 import Services from "../../components/Services";
-import Header from "../../common/Header";
+import Header from "../../common/Navbar";
 import MainHeader from "../../components/MainHeader";
 
-const HomePage = () => {
+const HomePage = ({setNavBarModal, navbarModal}) => {
   return (
     <React.Fragment>
-      <Header>
-        <MainHeader title="Welcome to our store" />
-      </Header>
+      <MainHeader title="Welcome to our store" />
       <div className="flex flex-col gap-y-40">
         <div className="flex flex-col justify-center items-center">
           <BestSellProducts numStartSlice={0} numEndSlice={3} />
