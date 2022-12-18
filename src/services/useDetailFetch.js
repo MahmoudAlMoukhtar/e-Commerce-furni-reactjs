@@ -1,27 +1,19 @@
 import database from "../firebase/firebase";
 import {useState, useEffect} from "react";
+//local-server
 
-export default function useFetch(url) {
-  const [data, setData] = useState([]);
+export default function useDetailFetch(url) {
+  const [data, setData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const init = async () => {
       try {
-        database.ref(url).on(
+        await database.ref(url).on(
           "value",
           snapshot => {
-            const data = [];
-            snapshot.forEach(childSnapshot => {
-              //console.log("childSnapshot.key", childSnapshot.key);
-              data.push({
-                id: childSnapshot.key,
-                ...childSnapshot.val(),
-              });
-            });
-            //console.log("childSnapshot.key data", data);
-            setData(data);
+            setData(snapshot.val());
           },
           e => {
             console.log("error");

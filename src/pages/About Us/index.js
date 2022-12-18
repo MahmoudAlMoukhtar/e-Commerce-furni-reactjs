@@ -1,22 +1,16 @@
-import React, {useEffect, useState} from "react";
-import Header from "../../common/Navbar";
+import React from "react";
 import MainHeader from "../../components/MainHeader";
 import Services from "../../components/Services";
 import Testimonailas from "../../components/Testimonailas";
+import useFetch from "../../services/useFetch";
+import Spinner from "../../Spinner";
+
 //import WhyChoose from "../../WhyChose";
 
 const OurTeam = () => {
-  const [ourTeam, setOurTeam] = useState([]);
-  useEffect(() => {
-    (async () => {
-      await fetch("https://e-commerce-furni-reactjs.herokuapp.com/ourTeam")
-        .then(res => res.json())
-        .then(jsonData => {
-          console.log(jsonData);
-          setOurTeam(jsonData);
-        });
-    })();
-  }, []);
+  const {data: ourTeam, loading, error} = useFetch("ourTeam");
+  if (error) throw error;
+  if (loading) return <Spinner />;
 
   const Employee = ({img, name, title, descripWork}) => {
     return (

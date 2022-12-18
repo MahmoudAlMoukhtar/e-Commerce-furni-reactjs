@@ -1,7 +1,6 @@
-// local-server const baseUrl = process.env.REACT_APP_API_BASE_URL;
+import database from "../firebase/firebase";
 
-//hosting server
-const baseUrl = "https://e-commerce-furni-reactjs.herokuapp.com/";
+const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
 export async function getShippingAddress(userId) {
   return fetch(baseUrl + "shippingAddress/" + userId).then(response => {
@@ -10,7 +9,7 @@ export async function getShippingAddress(userId) {
   });
 }
 
-export async function saveShippingAddress(address) {
+/* export async function saveShippingAddress(address) {
   return fetch(baseUrl + "shippingAddress", {
     method: "POST",
     headers: {
@@ -18,4 +17,8 @@ export async function saveShippingAddress(address) {
     },
     body: JSON.stringify(address),
   });
+}
+ */
+export async function saveShippingAddress(address) {
+  return database.ref("shippingAddress").push(address);
 }

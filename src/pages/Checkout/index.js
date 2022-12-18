@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import Header from "../../common/Navbar";
 import {saveShippingAddress} from "../../services/shippingService";
 // Declaring outside component to avoid recreation on each render
 const emptyAddress = {
@@ -42,7 +41,7 @@ function CheckoutPage({emptyCart}) {
     })();
   }, []);
 
-  console.log(countries);
+  //console.log(countries);
 
   //Derived state
   const errors = getErrors(address);

@@ -14,7 +14,6 @@
     "cross-env": "^7.0.2",
     "firebase": "4.2.0",
     "history": "^5.0.0",
-    "json-server": "^0.16.1",
     "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -25,9 +24,8 @@
     "swiper": "^8.3.2"
   },
   "scripts": {
-    "start": "run-p start:api start:app",
+    "start": "run-p start:app",
     "start:app": "cross-env REACT_APP_API_BASE_URL=http://localhost:3001/ react-scripts  start",
-    "start:api": "json-server --port 3001 --watch db.json --delay 0",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -46,5 +44,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4"
   }
 }

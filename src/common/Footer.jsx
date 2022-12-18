@@ -2,10 +2,10 @@ import React from "react";
 import {AiFillLinkedin, AiFillFacebook} from "react-icons/ai";
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 mt-20 flex flex-col justify-between gap-6 px-8 pt-16 pb-40 w-[100%]">
+    <footer className=" bg-gray-100 mt-20  sm:p-8 w-[100%]">
       <div className="flex flex-col justify-between gap-y-8">
-        <div className="flex justify-between flex-wrap">
-          <div className="flex flex-col gap-y-6 justify-center">
+        <div className="flex justify-between flex-wrap px-2 sm:px-0">
+          <div className="flex flex-col gap-y-6 justify-center ">
             <div className="flex gap-x-2">
               <h1 className="text-2xl">Subscribe to Newsletter</h1>
             </div>
@@ -33,14 +33,14 @@ const Footer = () => {
             id="sofa-img-footer"
             src="/images/sofa.png"
             alt=""
-            className=" md:w-[200px] lg:w-80"
+            className="hidden absolute lg:block lg:static lg:w-60 "
           />
         </div>
         <div
           id="main-footer"
           className="flex justify-between items-start flex-wrap md:flex-nowrap gap-12 lg:gap-36 w-[100%]"
         >
-          <div className="flex flex-col gap-y-6 text-start col-span-2">
+          <div className="flex flex-col gap-y-6 col-span-2 px-2 text-center items-center sm:text-start sm:items-start sm:justify-start sm:px-0">
             <a href="#home">
               <h2 className="font-semibold text-2xl">UNTREESTORE.</h2>
             </a>
@@ -81,8 +81,11 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="flex justify-between items-start flex-wrap sm:flex-nowrap gap-12 lg:gap-24 w-[100%]">
-            <div className="flex flex-col gap-y-6 justify-center items-start w-20">
+          <div
+            id="nav-footer"
+            className="flex justify-between items-start flex-wrap sm:flex-nowrap gap-12 lg:gap-24 w-[100%] p-2"
+          >
+            <div className="sub-nav-footer flex flex-col gap-y-6 justify-center items-start w-20">
               <a href="#home" className="hover:text-green-600 w-20">
                 About us
               </a>
@@ -96,7 +99,7 @@ const Footer = () => {
                 Contact us
               </a>
             </div>
-            <div className="flex flex-col gap-y-6 justify-center items-start w-20">
+            <div className="sub-nav-footer flex flex-col gap-y-6 justify-center items-start w-20">
               <a href="#home" className="hover:text-green-600">
                 Support
               </a>
@@ -107,7 +110,7 @@ const Footer = () => {
                 Live chat
               </a>
             </div>
-            <div className="flex flex-col gap-y-6 justify-center items-start w-20">
+            <div className="sub-nav-footer flex flex-col gap-y-6 justify-center items-start w-20">
               <a href="#home" className="hover:text-green-600 w-20">
                 Jobs
               </a>
@@ -121,7 +124,7 @@ const Footer = () => {
                 Privacy Policy
               </a>
             </div>
-            <div className="flex flex-col gap-y-6 justify-center items-start w-20">
+            <div className="sub-nav-footer flex flex-col gap-y-6 justify-center items-start w-20">
               <a href="#home" className="hover:text-green-600 w-20">
                 Nordic Chair
               </a>

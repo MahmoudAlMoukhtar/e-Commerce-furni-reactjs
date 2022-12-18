@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {Routes, Route} from "react-router-dom";
-import Detail from "./pages/Detail";
 import BlogsPage from "./pages/Blogs";
 import DetailBlog from "./components/DetailBlog";
 import HomePage from "./pages/Home";
@@ -13,6 +12,7 @@ import ContactPage from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 import NavbarModal from "./components/NavModal";
 import Navbar from "./common/Navbar";
+import DetailProduct from "./components/DetailProduct";
 
 export default function App() {
   const [cart, setCart] = useState(() => {
@@ -26,7 +26,8 @@ export default function App() {
 
   useEffect(() => localStorage.setItem("cart", JSON.stringify(cart)), [cart]);
 
-  const addToCart = (id, sku, counter) => {
+  const addToCart = (id, sku, counter, price, name, image, size, skus) => {
+    // console.log(skus);
     setCart(items => {
       const itemInCart = items.find(i => i.sku === sku);
       if (itemInCart) {
@@ -34,7 +35,10 @@ export default function App() {
           return i.sku === sku ? {...i, quantity: counter} : i;
         });
       } else {
-        return [...items, {id, sku, quantity: counter}];
+        return [
+          ...items,
+          {id, sku, price, name, image, size, skus, quantity: counter},
+        ];
       }
     });
   };
@@ -56,72 +60,65 @@ export default function App() {
   return (
     <React.Fragment>
       <ScrollToTop />
-      <div className="flex flex-col ">
-        <main className="p-0 m-0">
-          <Navbar setNavBarModal={setNavBarModal} navbarModal={navBarModal} />
-          <NavbarModal
-            setNavBarModal={setNavBarModal}
-            navbarModal={navBarModal}
-          />
+      <div className="flex flex-col w-[100%]">
+        <Navbar setNavBarModal={setNavBarModal} navbarModal={navBarModal} />
+        <NavbarModal
+          setNavBarModal={setNavBarModal}
+          navbarModal={navBarModal}
+        />
 
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <HomePage
-                  setNavBarModal={setNavBarModal}
-                  navbarModal={navBarModal}
-                />
-              }
-            />
-            <Route
-              path="/:category"
-              element={
-                <ShopPage
-                  addToCart={addToCart}
-                  setNavBarModal={setNavBarModal}
-                />
-              }
-            />
-            <Route
-              path="/:category/:id"
-              element={
-                <Detail
-                  addToCart={addToCart}
-                  updateQuantity={updateQuantity}
-                  setNavBarModal={setNavBarModal}
-                />
-              }
-            />
-            <Route
-              path="/blogs"
-              element={
-                <BlogsPage page="blogs" setNavBarModal={setNavBarModal} />
-              }
-            />
-            <Route
-              path="/blogs/:blogId"
-              element={<DetailBlog setNavBarModal={setNavBarModal} />}
-            />
-            <Route
-              path="/cart"
-              element={<CartPage cart={cart} updateQuantity={updateQuantity} />}
-            />
-            <Route
-              path="/checkout"
-              element={<CheckoutPage cart={cart} emptyCart={emptyCart} />}
-            />
-            <Route
-              path="/about"
-              element={<AboutPage setNavBarModal={setNavBarModal} />}
-            />
-            <Route
-              path="/contact"
-              element={<ContactPage setNavBarModal={setNavBarModal} />}
-            />
-          </Routes>
-          <Footer />
-        </main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                setNavBarModal={setNavBarModal}
+                navbarModal={navBarModal}
+              />
+            }
+          />
+          <Route
+            path="/:category"
+            element={
+              <ShopPage addToCart={addToCart} setNavBarModal={setNavBarModal} />
+            }
+          />
+          <Route
+            path="/:category/:id"
+            element={
+              <DetailProduct
+                addToCart={addToCart}
+                updateQuantity={updateQuantity}
+                setNavBarModal={setNavBarModal}
+              />
+            }
+          />
+          <Route
+            path="/blogs"
+            element={<BlogsPage page="blogs" setNavBarModal={setNavBarModal} />}
+          />
+          <Route
+            path="/blogs/:blogId"
+            element={<DetailBlog setNavBarModal={setNavBarModal} />}
+          />
+          <Route
+            path="/cart"
+            element={<CartPage cart={cart} updateQuantity={updateQuantity} />}
+          />
+          <Route
+            path="/checkout"
+            element={<CheckoutPage cart={cart} emptyCart={emptyCart} />}
+          />
+          <Route
+            path="/about"
+            element={<AboutPage setNavBarModal={setNavBarModal} />}
+          />
+          <Route
+            path="/contact"
+            element={<ContactPage setNavBarModal={setNavBarModal} />}
+          />
+        </Routes>
+        <Footer />
       </div>
     </React.Fragment>
   );

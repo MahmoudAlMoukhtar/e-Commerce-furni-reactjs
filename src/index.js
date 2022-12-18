@@ -4,8 +4,7 @@ import App from "./App";
 import ErrorBoundary from "./ErrorBoundary";
 import {BrowserRouter} from "react-router-dom";
 import "animate.css";
-import "./index.css";
-//import "./firebase/firebase";
+import "./firebase/firebase";
 
 ReactDOM.render(
   <ErrorBoundary>

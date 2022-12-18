@@ -4,7 +4,7 @@ const Blog = ({blog}) => {
   const {img, by, date, title, id} = blog;
   return (
     <Link to={`/blogs/${id}`}>
-      <div className="blog flex flex-col justify-between gap-y-2 h-96 w-96 hover:cursor-pointer shadow-2xl p-4 transition duration-300 hover:scale-105">
+      <div className="blog flex flex-col justify-between gap-y-2 w-80 h-80 sm:h-96 sm:w-96 hover:cursor-pointer shadow-2xl p-4 transition duration-300 hover:scale-105">
         <img
           src={img}
           alt=""

@@ -15,11 +15,7 @@ const styles = {
 };
 
 function BestSellProducts({numStartSlice = 0, numEndSlice = 3}) {
-  const {
-    data: products,
-    loading,
-    error,
-  } = useFetch("products?category=allProducts");
+  const {data: products, loading, error} = useFetch("products");
 
   if (error) throw error;
   if (loading) return <Spinner />;
@@ -38,12 +34,12 @@ function BestSellProducts({numStartSlice = 0, numEndSlice = 3}) {
   return (
     <React.Fragment>
       {products.length === 0 ? (
-        <PageNotFound />
+        <Spinner />
       ) : (
         <section id="show3products" className="mt-20">
           <div
             id="container-best-products"
-            className="contanier flex justify-center items-center gap-6 px-16"
+            className="contanier flex flex-col justify-center xl:flex-row items-center gap-6 px-16"
           >
             <div id="text-section" className="flex flex-col gap-y-6 min-w-96">
               <h3 className="text-3xl font-medium">
@@ -61,7 +57,7 @@ function BestSellProducts({numStartSlice = 0, numEndSlice = 3}) {
             </div>
             <div
               id="best-products-sec"
-              className="flex gap-4 justify-between w-[100%]"
+              className="flex flex-wrap md:flex-nowrap gap-4 justify-center w-[100%]"
             >
               {productsSlice.map(p => (
                 <Product product={p} key={p.id} />

@@ -18,7 +18,7 @@ const Navbar = ({setNavBarModal, navbarModal}) => {
       <Link to="/">
         <h2 className="text-white font-semibold text-4xl">Furni.</h2>
       </Link>
-      <ul id="main-navigation" className="flex items-center gap-x-12">
+      <ul className="invisible	absolute text-sm sm:text-md gap-x-4 sm:flex sm:items-center sm:gap-x-6 md:gap-x-12 sm:visible sm:static">
         <NavLink
           style={({isActive}) => (isActive ? activeStyle : undefined)}
           to="/"

@@ -1,5 +1,7 @@
 import {useState, useEffect, useRef} from "react";
 
+const baseUrl = process.env.REACT_APP_API_BASE_URL;
+
 export default function useFetchAll(urls) {
   const prevUrlsRef = useRef([]);
   const [data, setData] = useState(null);
@@ -14,12 +16,10 @@ export default function useFetchAll(urls) {
     }
     prevUrlsRef.current = urls;
     const promises = urls.map(url =>
-      fetch("https://e-commerce-furni-reactjs.herokuapp.com/" + url).then(
-        response => {
-          if (response.ok) return response.json();
-          throw response;
-        }
-      )
+      fetch(baseUrl + url).then(response => {
+        if (response.ok) return response.json();
+        throw response;
+      })
     );
 
     Promise.all(promises)

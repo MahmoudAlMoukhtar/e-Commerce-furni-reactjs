@@ -11,16 +11,22 @@ const MainHeader = ({title}) => {
   return (
     <div
       id="mainHeader"
-      className="bg-green-800 flex justify-between items-center p-8 w-[100%]"
+      className="bg-green-800 flex flex-col sm:flex-row justify-center sm:justify-between items-center p-8 w-[100%]"
     >
-      <div id="main-text" className="flex flex-col gap-y-12 flex-2">
+      <div
+        id="main-text"
+        className="flex flex-col items-center text-center gap-y-12 sm:items-start sm:text-start sm:gap-y-8 md:gap-y-12 flex-2"
+      >
         <h1
           id={"main_header-title"}
-          className="text-5xl font-semibold text-white animate__animated animate__wobble"
+          className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white animate__animated animate__wobble"
         >
           {title}
         </h1>
-        <p id="main_header-descraption" className="text-gray-400">
+        <p
+          id="main_header-descraption"
+          className="text-gray-400 text-sm sm:text-sm md:text-md"
+        >
           Donec vitae quis nisi dapibus malesuada. Nuilam ac ailqut velit.
           Aliquam vulputate velit imperdiet dolor tempor tristique.
         </p>
@@ -54,7 +60,7 @@ const MainHeader = ({title}) => {
           id="dotsYellow"
           src="/images/dots-yellow.svg"
           alt="couch"
-          className="w-[200px] transition duration-600 absolute top-10 right-0 z-0"
+          className="invisible absolute sm:visible sm:visible  w-[200px] transition duration-600 absolute top-10 right-0 z-0"
           style={styles}
           width={200}
         />

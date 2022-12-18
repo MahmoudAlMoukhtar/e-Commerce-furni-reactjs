@@ -5,7 +5,6 @@ import Testimonailas from "../../components/Testimonailas";
 import WhyChoose from "../../components/WhyChose";
 import BestSellProducts from "../../components/BestSellProducts";
 import Services from "../../components/Services";
-import Header from "../../common/Navbar";
 import MainHeader from "../../components/MainHeader";
 
 const HomePage = ({setNavBarModal, navbarModal}) => {

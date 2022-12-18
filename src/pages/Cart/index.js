@@ -1,21 +1,17 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
-import Header from "../../common/Navbar";
 import CartItem from "../../components/CartItem";
-import useFetchAll from "../../services/useFetchAll";
-import Spinner from "../../Spinner";
-
 const styles = {
   cardItemCart:
     "cart-item bg-white flex justify-between items-center shadow-2xl px-4 py-2 transition duration-200 hover:scale-[1.02] cursor-default	border-4 border-gray-600 font-bold rounded-md",
 };
 const CartPage = ({cart, updateQuantity}) => {
   const urls = cart.map(i => `products/${i.id}`);
-  const {data: products, loading, error} = useFetchAll(urls);
+  //const {data: products, loading, error} = useFetchAll(urls);
   const navigate = useNavigate();
-
+  /* 
   if (loading) return <Spinner />;
-  if (error) throw error;
+  if (error) throw error; */
 
   const numberItemsInCart = cart.reduce(
     (total, item) => total + item.quantity,
@@ -58,7 +54,6 @@ const CartPage = ({cart, updateQuantity}) => {
             {cart.map(i => (
               <CartItem
                 key={i.sku}
-                products={products}
                 itemInCart={i}
                 updateQuantity={updateQuantity}
               />

@@ -43,6 +43,7 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
             to="/"
             end
             className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
           >
             Home
           </NavLink>
@@ -50,6 +51,7 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
             style={({isActive}) => (isActive ? activeStyle : undefined)}
             to="/allProducts"
             className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
           >
             Shop
           </NavLink>
@@ -57,6 +59,7 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
             style={({isActive}) => (isActive ? activeStyle : undefined)}
             to="/about"
             className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
           >
             About Us
           </NavLink>
@@ -65,6 +68,7 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
             style={({isActive}) => (isActive ? activeStyle : undefined)}
             to="/blogs"
             className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
           >
             Blogs
           </NavLink>
@@ -72,6 +76,7 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
             style={({isActive}) => (isActive ? activeStyle : undefined)}
             to="/contact"
             className={styles.linkPages}
+            onClick={() => setNavBarModal(false)}
           >
             Contact Us
           </NavLink>
@@ -80,6 +85,7 @@ const NavbarModal = ({setNavBarModal, navbarModal}) => {
             className={
               "text-white hover:text-black hover:pb-1 border-b-4 border-yellow-500 link-nav bg-black p-2 rounded-full font-bold"
             }
+            onClick={() => setNavBarModal(false)}
           >
             <svg
               width="1.2em"

@@ -3,12 +3,13 @@ import {useParams, useNavigate} from "react-router-dom";
 import useFetch from "../services/useFetch";
 import Spinner from "../Spinner";
 import PageNotFound from "../PageNotFound";
-import useFetchBlogs from "../services/useFetchBlogs";
+import useDetailFetch from "../services/useDetailFetch";
 
 export default function DetailBlog() {
   const {blogId} = useParams();
   const navigate = useNavigate();
-  const {data: blog, loading, error} = useFetch(`blogs/${blogId}`);
+  const {data: blog, loading, error} = useDetailFetch(`blogs/${blogId}`);
+  console.log("detail blog", blog);
   if (loading) return <Spinner />;
   if (!blog) return <PageNotFound />;
   if (error) throw error;

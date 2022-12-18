@@ -11,7 +11,21 @@ const config = {
 };
 
 firebase.initializeApp(config);
+const database = firebase.database();
 
-firebase.database().ref().set({
-  name: "mahmoud",
-});
+/* database.ref("shippingAddress").on(
+  "value",
+  snapshot => {
+    console.log(snapshot.val());
+  },
+  e => {
+    console.log("error");
+  }
+); */
+
+/* database.ref("shippingAddress").push({
+  city: "test firebase",
+  country: "firebase",
+}); */
+
+export default database;

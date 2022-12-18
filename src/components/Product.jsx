@@ -3,9 +3,9 @@ import {useNavigate} from "react-router-dom";
 
 const styles = {
   cardProduct:
-    "prodauct bg-gray-100 flex flex-col justify-between items-center gap-y-2 sm:w-60 shadow-2xl p-2 hover-background-Prod rounded-md hover:scale-110 transition duration-[0.1s]",
+    "prodauct bg-gray-100 flex flex-col justify-between items-center gap-y-2 sm:w-60 shadow-2xl p-2 rounded-md hover:scale-110 transtion duration-200",
   btnAddStyle:
-    "btn-add-to-cart text-white text-3xl translate-y-8 bg-black py-1 px-3 rounded-full transition duration-100 ease-in-out cursor-pointer",
+    "btn-add-to-cart text-white text-3xl translate-y-8 bg-black py-1 px-3 rounded-full transtion duration-100 ease-in-out cursor-pointer",
 };
 
 const Product = ({product: p}) => {

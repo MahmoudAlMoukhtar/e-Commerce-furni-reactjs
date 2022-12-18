@@ -8,19 +8,16 @@ import Product from "./Product";
 const styles = {
   containerProductsCards:
     "flex justify-center gap-8 gap-x-6 my-4 flex-wrap mt-10",
-  sectionFilters: "flex justify-center gap-4 bg-white font-bold",
+  sectionFilters:
+    "flex flex-col sm:flex-row justify-center gap-4 bg-white font-bold",
 };
 
 export default function Products() {
   const [size, setSize] = useState("");
   const {category} = useParams();
   const navigate = useNavigate();
-  const {data: filterProducts} = useFetch("products?category=allProducts");
-  const {
-    data: products,
-    loading,
-    error,
-  } = useFetch("products?category=" + category);
+  const {data: filterProducts} = useFetch("products");
+  const {data: products, loading, error} = useFetch("products");
 
   if (error) throw error;
   if (loading) return <Spinner />;
@@ -87,7 +84,7 @@ export default function Products() {
         </section>
 
         {products.length === 0 ? (
-          <PageNotFound />
+          <Spinner />
         ) : (
           <section id="products" className={styles.containerProductsCards}>
             {filteredProducts.map(p => (

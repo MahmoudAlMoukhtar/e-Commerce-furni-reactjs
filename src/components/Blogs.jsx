@@ -1,16 +1,14 @@
 import React from "react";
-import useFetchBlogs from "../services/useFetchBlogs";
 import Spinner from "../Spinner";
 import {Link} from "react-router-dom";
 import Blog from "./Blog";
+import useFetch from "../services/useFetch";
 
 const Blogs = ({page}) => {
-  const {blogs: blogsData, errorBlogs, loadingBlogs} = useFetchBlogs();
-  // const navigate = useNavigate();
-  // const {blogs} = useParams();
-  if (errorBlogs) throw errorBlogs;
-  if (loadingBlogs) return <Spinner />;
-  const blogsAfterSort = blogsData.sort((a, b) => {
+  const {data: blogs, error, loading} = useFetch("blogs");
+  if (error) throw error;
+  if (loading || blogs.length === 0) return <Spinner />;
+  const blogsAfterSort = blogs.sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
   });
   const blogsAfterSlice =
@@ -19,7 +17,7 @@ const Blogs = ({page}) => {
     <section id="blogs">
       <div
         id="bolgs-sec-container"
-        className="contanier xl:px-16 lg:px-8 sm:px-6 flex flex-col justify-between gap-y-20"
+        className="contanier xl:px-16 lg:px-8 px-6 flex flex-col justify-between gap-y-20"
       >
         {page !== "blogs" && (
           <React.Fragment>
@@ -41,7 +39,7 @@ const Blogs = ({page}) => {
         )}
         <div
           id="bolgs-sec-last3Blogs"
-          className="flex flex-wrap justify-center items-center gap-8 h-max"
+          className="flex flex-wrap justify-center items-center gap-8"
         >
           {blogsAfterSlice.map(b => (
             <Blog blog={b} key={b.id} />
